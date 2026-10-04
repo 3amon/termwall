@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="termwall">
+<meta name="theme-color" content="#1a1b26">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="xterm.css">
+<link rel="stylesheet" href="app.css?v=6">
+<title>termwall</title>
+</head>
+<body>
+
+<section id="wall" class="view">
+  <header class="top">
+    <h1>termwall</h1>
+    <div id="hosts"></div>
+    <button id="menu-btn" class="icon-btn" aria-label="Menu">⋯</button>
+  </header>
+  <div class="tabs">
+    <button data-tab="live" class="on">Live <span id="n-live"></span></button>
+    <button data-tab="recent">Recent</button>
+    <input id="q" type="search" placeholder="filter or search…" autocomplete="off" autocapitalize="off" spellcheck="false">
+  </div>
+  <div id="usage"></div>
+  <main id="cards"></main>
+  <button id="fab" aria-label="New session">+</button>
+</section>
+
+<section id="term" class="view hidden">
+  <header class="term-bar">
+    <button id="back" class="icon-btn" aria-label="Back">‹</button>
+    <div class="t-mid"><div id="t-title"></div><div id="t-sub"></div></div>
+    <button id="t-more" class="icon-btn" aria-label="More">⋯</button>
+  </header>
+  <div id="xterm"></div>
+  <div id="keybar">
+    <button data-k="esc">esc</button><button data-k="tab">tab</button><button data-k="btab">⇧tab</button>
+    <button data-k="ctrlc">^C</button><button data-k="up">↑</button><button data-k="down">↓</button>
+    <button data-k="left">←</button><button data-k="right">→</button><button data-k="enter">⏎</button>
+    <button data-k="kbd">⌨</button>
+  </div>
+</section>
+
+<section id="pair" class="view hidden">
+  <div class="pair-box">
+    <img src="icon-192.png" alt="" width="96" height="96">
+    <h2>Pair this device</h2>
+    <p>On the server host run <code>termwall web-pair</code> and enter the code it shows.</p>
+    <input id="pair-code" inputmode="numeric" autocomplete="one-time-code" maxlength="7" placeholder="123 456">
+    <button id="pair-go">Pair</button>
+    <p id="pair-err" class="muted"></p>
+  </div>
+</section>
+
+<div id="scrim" class="hidden"></div>
+<div id="sheet" class="hidden"></div>
+<div id="toast"></div>
+
+<script src="xterm.js"></script>
+<script src="addon-fit.js"></script>
+<script src="app.js?v=6"></script>
+</body>
+</html>

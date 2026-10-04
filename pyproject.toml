@@ -1,0 +1,34 @@
+[project]
+name = "termwall"
+version = "0.1.0"
+description = "Hotkey overlay for switching between Claude Code / Codex sessions across machines"
+authors = [{ name = "Eamon White", email = "white.eamon@gmail.com" }]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "aiohttp>=3.14.3",
+    "PySide6>=6.7",
+    "python-xlib>=0.33; sys_platform == 'linux'",
+    "pywebpush>=2.5.0",
+    "qrcode>=8.2",
+]
+
+[project.scripts]
+termwall = "termwall.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/termwall"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore:It is recommended to use web.AppKey"]

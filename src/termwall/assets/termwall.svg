@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#24283b"/>
+      <stop offset="1" stop-color="#13141c"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f2a4a"/>
+      <stop offset="1" stop-color="#1a1b26"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#7aa2f7" stop-opacity="0.55"/>
+      <stop offset="0.6" stop-color="#7aa2f7" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#7aa2f7" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="glass" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M16 0H0V16" fill="none" stroke="#7aa2f7" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+    <clipPath id="plate"><rect x="8" y="8" width="240" height="240" rx="54"/></clipPath>
+  </defs>
+
+  <!-- plate -->
+  <rect x="8" y="8" width="240" height="240" rx="54" fill="url(#bg)"/>
+  <g clip-path="url(#plate)">
+    <rect x="8" y="8" width="240" height="240" fill="url(#glass)"/>
+  </g>
+  <rect x="8.75" y="8.75" width="238.5" height="238.5" rx="53.25" fill="none" stroke="#414868" stroke-width="1.5"/>
+
+  <!-- the wall: 3x3 session tiles -->
+  <g fill="#2a2f45" stroke="#3b4261" stroke-width="1.5">
+    <rect x="40"  y="44"  width="52" height="40" rx="8"/>
+    <rect x="102" y="44"  width="52" height="40" rx="8"/>
+    <rect x="164" y="44"  width="52" height="40" rx="8"/>
+    <rect x="40"  y="108" width="52" height="40" rx="8"/>
+    <rect x="164" y="108" width="52" height="40" rx="8"/>
+    <rect x="40"  y="172" width="52" height="40" rx="8"/>
+    <rect x="102" y="172" width="52" height="40" rx="8"/>
+    <rect x="164" y="172" width="52" height="40" rx="8"/>
+  </g>
+  <!-- status dots: working / waiting / idle, like the cards -->
+  <g>
+    <circle cx="51"  cy="75"  r="3.5" fill="#9ece6a"/>
+    <circle cx="113" cy="75"  r="3.5" fill="#565f89"/>
+    <circle cx="175" cy="75"  r="3.5" fill="#e0af68"/>
+    <circle cx="51"  cy="139" r="3.5" fill="#565f89"/>
+    <circle cx="175" cy="139" r="3.5" fill="#9ece6a"/>
+    <circle cx="51"  cy="203" r="3.5" fill="#565f89"/>
+    <circle cx="113" cy="203" r="3.5" fill="#9ece6a"/>
+    <circle cx="175" cy="203" r="3.5" fill="#565f89"/>
+  </g>
+  <!-- faint text lines on the tiles -->
+  <g stroke="#565f89" stroke-width="3" stroke-linecap="round" opacity="0.7">
+    <path d="M50 56h22M50 64h30"/><path d="M112 56h28M112 64h18"/><path d="M174 56h20M174 64h28"/>
+    <path d="M50 120h26M50 128h16"/><path d="M174 120h30M174 128h20"/>
+    <path d="M50 184h18M50 192h28"/><path d="M112 184h24M112 192h30"/><path d="M174 184h28M174 192h14"/>
+  </g>
+
+  <!-- the selected session, zooming out of the wall -->
+  <circle cx="128" cy="128" r="74" fill="url(#halo)"/>
+  <rect x="80" y="94" width="96" height="68" rx="12" fill="url(#hero)" stroke="#7aa2f7" stroke-width="3"/>
+  <!-- prompt + cursor -->
+  <path d="M96 116l14 12-14 12" fill="none" stroke="#7aa2f7" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="118" y="134" width="26" height="7" rx="3.5" fill="#c0caf5"/>
+  <!-- claude spark in the corner of the selected tile -->
+  <g transform="translate(162 108)" stroke="#d97757" stroke-width="3.2" stroke-linecap="round">
+    <path d="M0 -7V7M-7 0H7M-5 -5L5 5M-5 5L5 -5"/>
+  </g>
+</svg>
